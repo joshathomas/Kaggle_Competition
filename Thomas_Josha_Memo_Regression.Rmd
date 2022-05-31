@@ -36,7 +36,7 @@ We found that boosted tree models preformed the best out of the models we tried.
 
 ```{r}
 
-autoplot(object = boost_tree_tuned_reg, metric = "rmse")
+autoplot(object = boost_tree_tuned, metric = "rmse")
 
 autoplot(object = rand_forest_tuned_reg, metric = "rmse")
 
