@@ -1,0 +1,51 @@
+---
+title: "Kaggle Competition Regression"
+author: "Josha Thomas"
+date: "5/31/2022"
+output: html_document
+---
+
+```{r warning=FALSE, include=FALSE}
+
+library(tidyverse)
+library(tidymodels)
+library(janitor)
+
+```
+
+```{r Load Data}
+
+load("data_regression/initial_split_reg.rda")
+load("model_info_regression/boost_tree_regression.rda")
+load("model_info_regression/rand_forest_regression.rda")
+read_csv("model_info_regression/boost_tree_reg_results.csv")
+
+```
+
+## EDA Results
+
+Our overview of the shape of our numeric variables we can showed us that they are largely skewed to the right. Based on this information we decided to include a Yeo-Jonhson transformation in our recipe.
+
+Our correlations shows us that most of our variables are not correlated. The variables that are correlated include (but are not limited to) the following hi_int_prncp_pd and out_prncp_inv, acc_now_delinq and num_tl_120dpd_2m, num_tl_30dpd and acc_now_delinq, acc_open_past_24mths and num_stats.
+
+## Models Included
+
+We found that boosted tree models preformed the best out of the models we tried. I tuned four parameters of the model including min_n, mtry, learning rate, and loss reduction.
+
+## Model Results
+
+```{r}
+
+autoplot(object = boost_tree_tuned_reg, metric = "rmse")
+
+autoplot(object = rand_forest_tuned_reg, metric = "rmse")
+
+```
+
+## Rankings
+
+According to the kaggle my most successful model was my boosted tree regression model. It scored 857.20426 and is ranked 151. 
+
+## Git Hub Repository
+
+[Kaggle Competition Repository](https://github.com/joshathomas/Kaggle_Competition)
