@@ -8,9 +8,9 @@ library(tidymodels)
 
 # Load Data---------------------------------------------------------------------
 
-codebook <- readxl::read_excel("Kaggle_Competition/data_classification/Codebook_cl.xlsx")
+codebook <- readxl::read_excel("data_classification/Codebook_cl.xlsx")
 
-bank_loan_test_class <- read_csv("Kaggle_Competition/data_classification/test.csv") %>% 
+bank_loan_test_class <- read_csv("data_classification/test.csv") %>% 
   janitor::clean_names() %>% 
   mutate(
     earliest_cr_line = lubridate::my(earliest_cr_line),
@@ -45,7 +45,7 @@ bank_loan_test_reg <- read_csv("Kaggle_Competition/data_regression/test.csv") %>
   )
 
 
-bank_loan_train_reg <- read_csv("Kaggle_Competition/data_regression/train.csv") %>%
+bank_loan_train_reg <- read_csv("data_regression/train.csv") %>%
   janitor::clean_names()%>% 
   mutate(
     earliest_cr_line = lubridate::my(earliest_cr_line),
@@ -65,7 +65,7 @@ bank_loan_train_reg <- read_csv("Kaggle_Competition/data_regression/train.csv") 
 
 # term, interest rate, loan amount 
 
-bank_loan_train_class <- read_csv("Kaggle_Competition/data_classification/train.csv") %>% 
+bank_loan_train_class <- read_csv("data_classification/train.csv") %>% 
   janitor::clean_names()%>% 
   mutate(
   earliest_cr_line = lubridate::my(earliest_cr_line),
@@ -260,9 +260,9 @@ corrplot::corrplot(bank_loan_cor, type = "upper", method = "square", tl.cex = 0.
 
 #Save Initial Set-Up------------------------------------------------------------
 
-save(bank_loan_train_class, bank_loan_test_class, bank_loan_folds_class,file = "Kaggle_Competition/data_classification/initial_split_class.rda")
+save(bank_loan_train_class, bank_loan_test_class, bank_loan_folds_class,file = "data_classification/initial_split_class.rda")
 
-save(bank_loan_train_reg, bank_loan_test_reg, bank_loan_folds_reg,file = "Kaggle_Competition/data_regression/initial_split_reg.rda")
+save(bank_loan_train_reg, bank_loan_test_reg, bank_loan_folds_reg,file = "data_regression/initial_split_reg.rda")
 
 
 
