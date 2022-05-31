@@ -20,9 +20,8 @@ tidymodels_prefer()
 
 #Load Required Objects ---------------------------------------------------------
 
-load("Kaggle_Competition/data_classification/initial_split.rda")
-load("Kaggle_Competition/data_classification/base_recipe_classification.rda")
-
+load("data_classification/initial_split.rda")
+load("data_classification/base_recipe_classification.rda")
 #set.seed-----------------------------------------------------------------------
 
 set.seed(3013)
@@ -100,4 +99,4 @@ stopCluster(cl)
 
 # Save results & workflow
 
-save(boost_tree_tuned, boost_tree_tictoc, file = "Kaggle_Competition/model_info_classification/boost_tree.rda")
+save(boost_tree_tuned, boost_tree_tictoc, file = "model_info_classification/boost_tree.rda")
