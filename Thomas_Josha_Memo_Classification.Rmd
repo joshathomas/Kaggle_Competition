@@ -19,10 +19,10 @@ library(janitor)
 
 ```{r Load Data}
 
-load("Kaggle_Competition/data_classification/initial_split.rda")
-load("Kaggle_Competition/model_info_classification/boost_tree.rda")
-load("Kaggle_Competition/model_info_classification/rand_forest_classification.rda")
-read_csv("Kaggle_Competition/model_info_classification/boost_tree_class_results.csv")
+load("data_classification/initial_split.rda")
+load("model_info_classification/boost_tree.rda")
+load("model_info_classification/rand_forest_classification.rda")
+read_csv("model_info_classification/boost_tree_class_results.csv")
 
 ```
 
