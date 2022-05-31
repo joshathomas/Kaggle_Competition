@@ -20,8 +20,8 @@ tidymodels_prefer()
 
 #Load Required Objects ---------------------------------------------------------
 
-load("Kaggle_Competition/data_classification/initial_split.rda")
-load("Kaggle_Competition/data_classification/base_recipe_classification.rda")
+load("data_classification/initial_split.rda")
+load("data_classification/base_recipe_classification.rda")
 
 #set.seed-----------------------------------------------------------------------
 
@@ -100,5 +100,5 @@ stopCluster(cl)
 
 # Save results & workflow
 
-save(rand_forest_tuned_class, file = "Kaggle_Competition/model_info_classification/rand_forest_classification.rda")
+save(rand_forest_tuned_class, file = "model_info_classification/rand_forest_classification.rda")
 

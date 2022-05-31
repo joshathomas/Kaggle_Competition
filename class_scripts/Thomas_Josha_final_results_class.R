@@ -7,8 +7,8 @@ library(tidyverse)
 
 # Load Data
 
-load("Kaggle_Competition/data_classification/initial_split_class.rda")
-load("Kaggle_Competition/model_info_classification/rand_forest_classification.rda")
+load("data_classification/initial_split_class.rda")
+load("model_info_classification/rand_forest_classification.rda")
 
 # Classification Final Results 
 
@@ -39,14 +39,14 @@ rand_forest_final_class <- predict(rand_forest_fit, new_data = bank_loan_test_cl
   select(Id, Category)
 
 
-write_csv(rand_forest_final_class, file = "Kaggle_Competition/model_info_classification/rand_forest_class_results.csv")
+write_csv(rand_forest_final_class, file = "model_info_classification/rand_forest_class_results.csv")
 
 # Boost Tree 
 
 # Load Data
 
-load("Kaggle_Competition/data_classification/initial_split_class.rda")
-load("Kaggle_Competition/model_info_classification/boost_tree.rda")
+load("data_classification/initial_split_class.rda")
+load("model_info_classification/boost_tree.rda")
 
 # Extract Workflow
 
@@ -72,5 +72,5 @@ boost_tree_final_class <- predict(boost_tree_fit, new_data = bank_loan_test_clas
   select(Id, Category)
 
 
-write_csv(boost_tree_final_class, file = "Kaggle_Competition/model_info_classification/boost_tree_class_results.csv")
+write_csv(boost_tree_final_class, file = "model_info_classification/boost_tree_class_results.csv")
 
