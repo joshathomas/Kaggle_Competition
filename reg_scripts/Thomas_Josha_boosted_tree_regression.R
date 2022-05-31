@@ -20,8 +20,8 @@ tidymodels_prefer()
 
 #Load Required Objects ---------------------------------------------------------
 
-load("Kaggle_Competition/data_regression/initial_split_reg.rda")
-load("Kaggle_Competition/data_regression/base_recipe_regression.rda")
+load("data_regression/initial_split_reg.rda")
+load("data_regression/base_recipe_regression.rda")
 
 #set.seed-----------------------------------------------------------------------
 
@@ -98,4 +98,4 @@ stopCluster(cl)
 
 # Save results & workflow
 
-save(boost_tree_tuned, boost_tree_wflow, file = "Kaggle_Competition/model_info_regression/boost_tree_regression.rda")
+save(boost_tree_tuned, boost_tree_wflow, file = "model_info_regression/boost_tree_regression.rda")

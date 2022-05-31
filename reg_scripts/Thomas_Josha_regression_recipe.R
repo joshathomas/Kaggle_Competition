@@ -10,7 +10,7 @@ tidymodels_prefer()
 
 # Load data---------------------------------------------------------------------
 
-load("Kaggle_Competition/data_regression/initial_split_reg.rda")
+load("data_regression/initial_split_reg.rda")
 
 #Base Recipe--------------------------------------------------------------------
 
@@ -52,7 +52,7 @@ bank_loan_metrics <- metric_set(
 
 #Save Recipe--------------------------------------------------------------------
 
-save(bank_loan_recipe_reg, keep_pred, bank_loan_metrics, file = "Kaggle_Competition/data_regression/base_recipe_regression.rda")
+save(bank_loan_recipe_reg, keep_pred, bank_loan_metrics, file = "data_regression/base_recipe_regression.rda")
 
 #Load Model Results-------------------------------------------------------------
 
