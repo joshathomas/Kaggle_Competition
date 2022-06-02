@@ -23,9 +23,9 @@ bank_loan_recipe_class <-recipe(hi_int_prncp_pd ~ annual_inc + acc_open_past_24m
   step_impute_mode(all_nominal_predictors()) %>%
   # step_rm(emp_title, id)  %>% 
   # step_string2factor(all_nominal_predictors()) %>% 
+  step_YeoJohnson(all_numeric_predictors()) %>%
   step_novel(all_nominal_predictors()) %>% # assigns a unseen factor level to a factor (variable) that already existed, comes up when you fold the data alot, always put this in
   step_dummy(all_nominal_predictors()) %>% #not the supervising variable, because the outcome variable should only be one variable , the computer will do the seperation by itself, its a software specific issue
-  step_YeoJohnson(all_numeric_predictors()) %>% 
   step_zv(all_predictors()) %>% # stands for step zero variance, always put this in recipe
   step_nzv(all_predictors()) %>%   #stands for near zero variance, we have several variables that are near zero variance that will provide little information
   step_normalize()

@@ -205,6 +205,10 @@ read_csv(&quot;model_info_classification/boost_tree_class_results.csv&quot;)</co
 <p>Our overview of the shape of our numeric variables we can showed us that they are largely skewed to the right. Based on this information we decided to include a Yeo-Jonhson transformation in our recipe.</p>
 <p>Our correlations shows us that most of our variables are not correlated. The variables that are correlated include (but are not limited to) the following hi_int_prncp_pd and out_prncp_inv, acc_now_delinq and num_tl_120dpd_2m, num_tl_30dpd and acc_now_delinq, acc_open_past_24mths and num_stats.</p>
 </div>
+<div id="preprocessing-and-feature-engenieering" class="section level2">
+<h2>Preprocessing and Feature Engenieering</h2>
+<p>There were some features that I included in my recipe out of precaution. I included imputation features for both my numeric and factor variables. I followed that with a step_novel feature to address unseen factor levels. Then I added a feature to dummy code all of my factor variables. Following that, I included a yeo_johnson feature to transform my numeric predictors because I found that most of the variables are skewed in our EDA. Then I added features that removed variables that were at or near zero variance to remove variables that provided zero information. Finally, I included a feature to normalize the data to help the models preform better.</p>
+</div>
 <div id="models-included" class="section level2">
 <h2>Models Included</h2>
 <p>We found that boosted tree models preformed the best out of the models we tried. I tuned four parameters of the model including min_n, mtry, learning rate, and loss reduction.</p>

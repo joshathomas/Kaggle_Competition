@@ -35,7 +35,7 @@ bank_loan_test_reg  <- bank_loan_test_reg %>%
 
 rand_forest_final_reg <- predict(rand_forest_fit, new_data = bank_loan_test_reg) %>%
   bind_cols(bank_loan_test_reg %>% select(id)) %>%
-  mutate( Id = id, Predicted = .pred) %>%
+  mutate(Id = id, Predicted = .pred) %>%
   select(Id, Predicted)
 
 
@@ -65,7 +65,7 @@ boost_tree_fit <- fit(boost_tree_workflow_tuned, data = bank_loan_train_reg)
 # Clean Test Data
 
 bank_loan_test_reg  <- bank_loan_test_reg %>% 
-  select(c(annual_inc,acc_open_past_24mths, avg_cur_bal,bc_util, delinq_2yrs,delinq_amnt, dti, int_rate, loan_amnt, mort_acc, num_sats, num_tl_120dpd_2m, num_tl_90g_dpd_24m, num_tl_30dpd, out_prncp_inv, pub_rec, pub_rec_bankruptcies, tot_coll_amt, tot_cur_bal, total_rec_late_fee, sub_grade, id))
+  select(c(annual_inc,acc_open_past_24mths, avg_cur_bal,bc_util, delinq_2yrs,delinq_amnt, dti, int_rate, loan_amnt, mort_acc, num_sats, num_tl_120dpd_2m, num_tl_90g_dpd_24m, num_tl_30dpd, out_prncp_inv, pub_rec, pub_rec_bankruptcies, tot_coll_amt, tot_cur_bal, total_rec_late_fee, sub_grade, id, term))
 
 boost_tree_final_reg <- predict(boost_tree_fit, new_data = bank_loan_test_reg) %>%
   bind_cols(bank_loan_test_reg %>% select(id)) %>%

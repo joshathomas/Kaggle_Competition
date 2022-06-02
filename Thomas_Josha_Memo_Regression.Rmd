@@ -28,6 +28,13 @@ Our overview of the shape of our numeric variables we can showed us that they ar
 
 Our correlations shows us that most of our variables are not correlated. The variables that are correlated include (but are not limited to) the following hi_int_prncp_pd and out_prncp_inv, acc_now_delinq and num_tl_120dpd_2m, num_tl_30dpd and acc_now_delinq, acc_open_past_24mths and num_stats.
 
+
+## Preprocessing and Feature Engenieering 
+
+
+There were some features that I included in my recipe out of precaution. I included imputation features for both my numeric and factor variables. I followed that with a step_novel feature to address unseen factor levels. Then I added a feature to dummy code all of my factor variables. Following that, I included a yeo_johnson feature to transform my numeric predictors because I found that most of the variables are skewed in our EDA. Then I added features that removed variables that were at or near zero variance to remove variables that provided zero information. Finally, I included a feature to normalize the data to help the models preform better. 
+
+
 ## Models Included
 
 We found that boosted tree models preformed the best out of the models we tried. I tuned four parameters of the model including min_n, mtry, learning rate, and loss reduction.
@@ -38,7 +45,7 @@ We found that boosted tree models preformed the best out of the models we tried.
 
 autoplot(object = boost_tree_tuned, metric = "rmse")
 
-autoplot(object = rand_forest_tuned_reg, metric = "rmse")
+autoplot(object = rand_forest_tuned, metric = "rmse")
 
 ```
 
